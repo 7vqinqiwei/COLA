@@ -7,6 +7,10 @@
 
 如果你有技术热情，对阿里有兴趣，可以email：fulan.zjf@alibaba-inc.com
 
+# 阿里云COLA应用生成器
+https://start.aliyun.com/bootstrap.html
+![image.png](https://ata2-img.oss-cn-zhangjiakou.aliyuncs.com/48f870b98d6cea7f06864e17387e0717.png)
+
 # 项目说明
 **COLA既是框架，也是架构。创建COLA的主要目的是为应用架构提供一套简单的可以复制、可以理解、可以落地、可以控制复杂性的”指导和约束"。**
 - 架构部分主要是提供了创建符合COLA要求的应用Archetype。
@@ -22,13 +26,13 @@ COLA首先是作为架构的存在，是一种应用架构思想，主要是制�
 ### cola-archetype-service
 用来生成纯后端应用（没有Controller），生成应用的命令为：
 ```
-mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoService -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-service -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.0.0
+mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoService -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-service -DarchetypeGroupId=com.alibaba.cola -DarchetypeVersion=3.0.0
 ```
 
 ### cola-archetype-web
 用来生成Web后端应用（有Controller），生成应用的命令为：
 ```
-mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-web -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.0.0
+mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-web -DarchetypeGroupId=com.alibaba.cola -DarchetypeVersion=3.0.0
 ```
 
 ## COLA框架
@@ -83,3 +87,12 @@ com
 **4、查看运行日志：**
 
 请求执行成功的话，可以在浏览器中的返回值中看到："customerName":"Hello, World"。同时观察启动SpringBoot的控制台，可以看到LoggerInterceptor打印出来的日志。
+
+
+# 版本迭代
+## 3.0.1 版本
+之前的扩展点在locate扩展实现的时候，没有寻找默认实现的能力。增强之后，可以去寻找默认实现了。
+比如，"tmall.placeOrder.88vip"这个场景，其寻找扩展点的路径是：
+1. 尝试寻找"tmall.placeOrder.88vip"实现
+2. 如果没有，继续寻找"tmall.placeOrder"实现
+3. 如果没有，继续寻找"tmall"实现
