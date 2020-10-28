@@ -17,7 +17,11 @@ import ${package}.customer.executor.query.CustomerListByNameQryExe;
 
 import javax.annotation.Resource;
 
-
+/**
+ * service impl
+ * @author Frank Zhang
+ * @date 2020-10-27 8:03 PM
+ */
 @Service
 public class CustomerServiceImpl implements CustomerServiceI {
 

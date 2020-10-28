@@ -10,7 +10,11 @@ import ${package}.dto.CustomerAddCmd;
 import ${package}.dto.data.ErrorCode;
 import org.springframework.stereotype.Component;
 
-
+/**
+ * addCmdExe
+ * @author Frank Zhang
+ * @date 2020-10-27 8:03 PM
+ */
 @Component
 public class CustomerAddCmdExe{
 

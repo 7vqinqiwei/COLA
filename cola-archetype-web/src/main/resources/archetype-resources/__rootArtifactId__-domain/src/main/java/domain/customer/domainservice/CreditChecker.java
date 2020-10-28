@@ -3,7 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.domain.customer.domainservice;
 
-//The domain's ablility can also be placed here
+/**
+ * The domain's ablility can also be placed here
+ */
 public class CreditChecker{
 
 }

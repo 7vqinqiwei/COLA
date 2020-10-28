@@ -17,7 +17,9 @@ import ${package}.customer.executor.query.CustomerListByNameQryExe;
 
 import javax.annotation.Resource;
 
-
+/**
+ *
+ */
 @Service
 public class CustomerServiceImpl implements CustomerServiceI {
 

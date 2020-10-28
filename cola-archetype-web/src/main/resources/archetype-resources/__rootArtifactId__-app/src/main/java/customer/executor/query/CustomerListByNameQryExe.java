@@ -10,7 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
-
+/**
+ * qryExe
+ * @author Frank Zhang
+ * @date 2020-10-27 8:03 PM
+ */
 @Component
 public class CustomerListByNameQryExe{
     public MultiResponse<CustomerDTO> execute(CustomerListByNameQry cmd) {

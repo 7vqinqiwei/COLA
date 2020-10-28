@@ -34,6 +34,10 @@ mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoService -Dve
 ```
 mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-web -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0
 ```
+### cola-archetype-seven-jpa
+```
+mvn archetype:generate -DarchetypeCatalog=local -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-seven-jpa -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0
+```
 
 ## COLA框架
 其次，COLA也是一个框架，提供了扩展点功能组件和一般API定义规范组件。如果你打算使用COLA提供的扩展点功能。

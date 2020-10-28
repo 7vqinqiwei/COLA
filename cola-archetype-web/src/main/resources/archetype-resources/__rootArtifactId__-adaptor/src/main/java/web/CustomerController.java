@@ -12,13 +12,23 @@ import ${package}.dto.data.CustomerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
+/**
+ * Customer Web Adaptor
+ *
+ * Controller
+ *
+ * @author Frank Zhang
+ * @date 2020-10-27 8:03 PM
+ */
 @RestController
 public class CustomerController {
 
-    @Autowired
+    @Resource
     private CustomerServiceI customerService;
 
-    @GetMapping(value = "/helloworld")
+    @GetMapping(value = "/hello_world")
     public String helloWorld(){
         return "Hello, welcome to COLA world!";
     }
