@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                      xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
-                      name="demo"
-                      xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0">
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="demo"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-    <fileSets>
-        <fileSet>
-            <directory></directory>
-            <includes>
-                <include>gitignore.txt</include>
-            </includes>
-        </fileSet>
-    </fileSets>
+  <requiredProperties>
+    <requiredProperty key="gitignore">
+      <defaultValue>.gitignore</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+
+  <fileSets>
+    <fileSet>
+      <directory></directory>
+      <includes>
+        <include>__gitignore__</include>
+      </includes>
+    </fileSet>
+  </fileSets>
 
     <modules>
         <module id="${rootArtifactId}-client" dir="__rootArtifactId__-client" name="${rootArtifactId}-client">
@@ -70,8 +75,7 @@
             </fileSets>
         </module>
 
-        <module id="${rootArtifactId}-infrastructure" dir="__rootArtifactId__-infrastructure"
-                name="${rootArtifactId}-infrastructure">
+        <module id="${rootArtifactId}-infrastructure" dir="__rootArtifactId__-infrastructure" name="${rootArtifactId}-infrastructure">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
