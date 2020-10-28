@@ -30,13 +30,15 @@ mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoService -Dve
 ```
 
 ### cola-archetype-web
+其实统一生成web.archetype 即可 ，不想使用adapter，手动删除该模块即可：毕竟web比service只是多了一个adapter模块
 用来生成Web后端应用（有Adapter），生成应用的命令为：
 ```
 mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-web -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0
 ```
 ### cola-archetype-seven-jpa
+本地安装请增加 -DarchetypeCatalog=local 参数
 ```
-mvn archetype:generate -DarchetypeCatalog=local -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-seven-jpa -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0
+mvn archetype:generate -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-seven-jpa -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0
 ```
 
 ## COLA框架
