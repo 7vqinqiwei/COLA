@@ -6,7 +6,7 @@
   <version>3.1.0</version>
   <packaging>maven-archetype</packaging>
 
-  <name>cola framework archetype</name>
+  <name>cola framework archetype web</name>
 
   <build>
     <extensions>
