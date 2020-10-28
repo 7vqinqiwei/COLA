@@ -30,6 +30,7 @@ public class StateMachineImpl<S,E,C> implements StateMachine<S, E, C> {
         this.stateMap = stateMap;
     }
 
+    @Override
     public S fireEvent(S sourceStateId, E event, C ctx){
         isReady();
         State sourceState = getState(sourceStateId);

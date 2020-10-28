@@ -7,9 +7,13 @@ package com.alibaba.cola.exception;
  * @date 2020-10-27 3:25 PM
  */
 public enum  ErrorCodeDefault implements ErrorCodeI {
-
+    /**
+     * 通用业务错误
+     */
     BIZ_ERROR("BIZ_ERROR" , "通用的业务逻辑错误"),
-
+    /**
+     * 系统错误
+     */
     SYS_ERROR("SYS_ERROR" , "未知的系统错误" );
 
     private String errCode;

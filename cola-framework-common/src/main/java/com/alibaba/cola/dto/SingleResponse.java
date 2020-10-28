@@ -3,7 +3,9 @@ package com.alibaba.cola.dto;
 /**
  * Response with single record to return
  * <p/>
- * Created by Danny.Lee on 2017/11/1.
+ *
+ * @author Danny.Lee
+ * @date 2017/11/1
  */
 
 public class SingleResponse<T> extends Response {

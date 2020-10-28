@@ -12,7 +12,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 2020-02-08 10:21 PM
  */
 public class StateMachineFactory {
-    static Map<String /* machineId */, StateMachine> stateMachineMap = new ConcurrentHashMap<>();
+    /**
+     * machineId and  StateMachine
+     */
+    static Map<String, StateMachine> stateMachineMap = new ConcurrentHashMap<>();
 
     public static <S, E, C> void register(StateMachine<S, E, C> stateMachine){
         String machineId = stateMachine.getMachineId();

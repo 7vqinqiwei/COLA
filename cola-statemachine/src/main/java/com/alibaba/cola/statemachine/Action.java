@@ -16,6 +16,13 @@ public interface Action<S, E, C> {
 //     */
 //    void execute(StateContext<S, E> context);
 
-    public void execute(S from, S to, E event, C context);
+    /**
+     * 执行操作
+     * @param from
+     * @param to
+     * @param event
+     * @param context
+     */
+    void execute(S from, S to, E event, C context);
 
 }

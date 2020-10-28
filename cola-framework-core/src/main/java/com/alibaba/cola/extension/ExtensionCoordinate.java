@@ -17,8 +17,9 @@ public class ExtensionCoordinate {
     private String bizScenarioUniqueIdentity;
 
 
-
-    //Wrapper
+    /**
+     * extend extension Wrapper
+     */
     private Class extensionPointClass;
     private BizScenario bizScenario;
 
@@ -60,16 +61,30 @@ public class ExtensionCoordinate {
     }
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
         ExtensionCoordinate other = (ExtensionCoordinate) obj;
         if (bizScenarioUniqueIdentity == null) {
-            if (other.bizScenarioUniqueIdentity != null) return false;
-        } else if (!bizScenarioUniqueIdentity.equals(other.bizScenarioUniqueIdentity)) return false;
+            if (other.bizScenarioUniqueIdentity != null) {
+                return false;
+            }
+        } else if (!bizScenarioUniqueIdentity.equals(other.bizScenarioUniqueIdentity)) {
+            return false;
+        }
         if (extensionPointName == null) {
-            if (other.extensionPointName != null) return false;
-        } else if (!extensionPointName.equals(other.extensionPointName)) return false;
+            if (other.extensionPointName != null) {
+                return false;
+            }
+        } else if (!extensionPointName.equals(other.extensionPointName)) {
+            return false;
+        }
         return true;
     }
 

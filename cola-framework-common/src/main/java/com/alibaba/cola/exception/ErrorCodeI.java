@@ -2,13 +2,21 @@ package com.alibaba.cola.exception;
 
 /**
  * Extends your error codes in your App by implements this Interface.
- *
- * Created by fulan.zjf on 2017/12/18.
+ * @author fulan.zjf
+ * @date 2017/12/18
  */
 public interface ErrorCodeI {
 
-    public String getErrCode();
+    /**
+     * 获取错误编码
+     * @return
+     */
+    String getErrCode();
 
-    public String getErrDesc();
+    /**
+     * 获取错误描述
+     * @return
+     */
+    String getErrDesc();
 
 }

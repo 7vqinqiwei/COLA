@@ -6,11 +6,13 @@ import com.alibaba.cola.exception.ErrorCodeI;
  *
  * There are only 3 basic ErrorCode:
  * COLA_ERROR
- *
- * Created by fulan.zjf on 2017/12/18.
+ * @author fulan.zjf
+ * @date 2017/12/18
  */
 public enum ColaErrorCode implements ErrorCodeI {
-
+    /**
+     * 系统架构错误
+     */
     COLA_ERROR("COLA_FRAMEWORK_ERROR" , "COLA框架错误");
 
     private String errCode;

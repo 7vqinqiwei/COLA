@@ -27,6 +27,14 @@ public abstract class AbstractComponentExecutor {
         return exeFunction.apply(component);
     }
 
+    /**
+     * 类似于上一方法
+     * @param extensionCoordinate
+     * @param exeFunction
+     * @param <R>
+     * @param <T>
+     * @return
+     */
     public <R, T> R execute(ExtensionCoordinate extensionCoordinate, Function<T, R> exeFunction){
         return execute((Class<T>) extensionCoordinate.getExtensionPointClass(), extensionCoordinate.getBizScenario(), exeFunction);
     }
@@ -48,5 +56,12 @@ public abstract class AbstractComponentExecutor {
         executeVoid(extensionCoordinate.getExtensionPointClass(), extensionCoordinate.getBizScenario(), exeFunction);
     }
 
+    /**
+     * 定位Component
+     * @param targetClz
+     * @param context
+     * @param <C>
+     * @return
+     */
     protected abstract <C> C locateComponent(Class<C> targetClz, BizScenario context);
 }

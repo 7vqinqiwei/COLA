@@ -8,7 +8,9 @@ import java.util.List;
  * Response with batch record to return,
  * usually use in page query or conditional query
  * <p/>
- * Created by Danny.Lee on 2017/11/1.
+ *
+ * @author Danny.Lee
+ * @date 2017/11/1
  */
 public class MultiResponse<T> extends Response {
 

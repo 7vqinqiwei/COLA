@@ -6,5 +6,9 @@ package com.alibaba.cola.pattern.filter;
  */
 public interface FilterInvoker<T> {
 
-    default public void invoke(T context){};
+    /**
+     * 调用
+     * @param context
+     */
+    default void invoke(T context){};
 }

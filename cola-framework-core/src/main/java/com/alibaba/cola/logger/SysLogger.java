@@ -1,5 +1,8 @@
 package com.alibaba.cola.logger;
 
+/**
+ * @author qinqw
+ */
 public class SysLogger implements Logger{
 
     private String loggerName;

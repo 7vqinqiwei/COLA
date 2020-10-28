@@ -43,12 +43,14 @@ public class ExtensionRegister{
      */
     private String calculateExtensionPoint(Class<?> targetClz) {
         Class[] interfaces = targetClz.getInterfaces();
-        if (interfaces == null || interfaces.length == 0)
+        if (interfaces == null || interfaces.length == 0) {
             throw new ColaException("Please assign a extension point interface for "+targetClz);
+        }
         for (Class intf : interfaces) {
             String extensionPoint = intf.getSimpleName();
-            if (extensionPoint.contains(ColaConstant.EXTENSION_EXTPT_NAMING))
+            if (extensionPoint.contains(ColaConstant.EXTENSION_EXTPT_NAMING)) {
                 return intf.getName();
+            }
         }
         throw new ColaException("Your name of ExtensionPoint for "+targetClz+" is not valid, must be end of "+ ColaConstant.EXTENSION_EXTPT_NAMING);
     }

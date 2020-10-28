@@ -12,7 +12,7 @@ public interface Logger {
      *
      * @param msg the message string to be logged
      */
-    public void debug(String msg);
+    void debug(String msg);
 
     /**
      * Log a message at the DEBUG level. support format.
@@ -20,7 +20,7 @@ public interface Logger {
      * @param msg
      * @param args
      */
-    default public void debug(String msg, Object... args){
+    default void debug(String msg, Object... args){
     	debug(String.format(msg, args));
     }
 
@@ -29,7 +29,7 @@ public interface Logger {
      *
      * @param msg the message string to be logged
      */
-    public void info(String msg);
+    void info(String msg);
 
     /**
      * Log a message at the INFO level. support format.
@@ -37,7 +37,7 @@ public interface Logger {
      * @param msg
      * @param args
      */
-    default public void info(String msg, Object... args){
+    default void info(String msg, Object... args){
     	info(String.format(msg, args));
     }
 
@@ -46,7 +46,7 @@ public interface Logger {
      *
      * @param msg the message string to be logged
      */
-    public void warn(String msg);
+    void warn(String msg);
 
     /**
      * Log a message at the WARN level. support format.
@@ -54,7 +54,7 @@ public interface Logger {
      * @param msg
      * @param args
      */
-    default public void warn(String msg, Object... args){
+    default void warn(String msg, Object... args){
     	warn(String.format(msg, args));
     }
     /**
@@ -62,14 +62,14 @@ public interface Logger {
      *
      * @param msg the message string to be logged
      */
-    public void error(String msg);
+    void error(String msg);
 
     /**
      * Log a message at the ERROR level. support format.
      * @param msg
      * @param args
      */
-    default public void error(String msg, Object... args){
+    default void error(String msg, Object... args){
     	error(String.format(msg, args));
     }
 
@@ -80,5 +80,5 @@ public interface Logger {
      * @param msg the message accompanying the exception
      * @param t   the exception (throwable) to log
      */
-    public void error(String msg, Throwable t);
+    void error(String msg, Throwable t);
 }

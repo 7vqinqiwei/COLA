@@ -2,6 +2,7 @@ package com.alibaba.cola.exception;
 
 /**
  * BizException is known Exception, no need retry
+ * @author seven
  */
 public class BizException extends BaseException {
 

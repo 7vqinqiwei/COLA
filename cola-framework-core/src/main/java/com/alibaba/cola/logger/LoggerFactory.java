@@ -1,12 +1,16 @@
 package com.alibaba.cola.logger;
 
+/**
+ * @author seven
+ */
 public class LoggerFactory {
 
     private static boolean useSysLogger = false;
 
     public static Logger getLogger(Class<?> clazz) {
-        if(useSysLogger)
+        if(useSysLogger) {
             return SysLogger.getLogger(clazz);
+        }
         org.slf4j.Logger slfjLogger = org.slf4j.LoggerFactory.getLogger(clazz);
         return new SLFJLogger(slfjLogger);
     }

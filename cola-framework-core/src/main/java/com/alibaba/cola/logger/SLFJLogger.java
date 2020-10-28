@@ -1,5 +1,8 @@
 package com.alibaba.cola.logger;
 
+/**
+ * @author seven
+ */
 public class SLFJLogger implements com.alibaba.cola.logger.Logger{
 
     private org.slf4j.Logger slfjLogger;

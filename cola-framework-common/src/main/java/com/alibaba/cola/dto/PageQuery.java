@@ -7,7 +7,9 @@ import java.util.List;
 /**
  * page query
  * <p/>
- * Created by Danny.Lee on 2017/11/1.
+ *
+ * @author Danny.Lee
+ * @date 2017/11/1
  */
 public abstract class PageQuery extends Query {
 
