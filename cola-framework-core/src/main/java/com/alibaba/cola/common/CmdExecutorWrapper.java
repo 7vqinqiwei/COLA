@@ -10,7 +10,7 @@ import com.alibaba.cola.exception.ColaException;
 /**
  * 执行器包装类
  * 一般的调用方都是注入**Exe然后执行其execute command方法
- * 该方法就是将该过程包装了一下 -- 后面需要对该方法喝结果处理都可以增加注解的方式拓展
+ * 该方法就是将该过程包装了一下 -- 后面需要对该方法的结果处理都可以增加注解的方式拓展
  * @author seven
  */
 public class CmdExecutorWrapper implements CmdExecutorWrapperI {
