@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techcontribution.ContributionMetric;
 import com.alibaba.craftsman.domain.metrics.techcontribution.RefactoringLevel;
@@ -19,11 +20,12 @@ import org.springframework.stereotype.Component;
  * @date 2019-03-04 11:15 AM
  */
 @Component
-public class RefactoringMetricAddCmdExe{
+public class RefactoringMetricAddCmdExe implements CommandExeI<RefactoringMetricAddCmd> {
 
     @Autowired
     private MetricGateway metricGateway;
 
+    @Override
     public Response execute(RefactoringMetricAddCmd cmd) {
         RefactoringMetricItem refactoringMetricItem = new RefactoringMetricItem();
         BeanUtils.copyProperties(cmd.getRefactoringMetricCO(), refactoringMetricItem);

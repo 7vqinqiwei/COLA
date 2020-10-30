@@ -9,6 +9,9 @@ import com.alibaba.craftsman.dto.clientobject.ATAMetricCO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @author seven
+ */
 @RestController
 public class MetricsController {
 
@@ -19,11 +22,11 @@ public class MetricsController {
     public MultiResponse<ATAMetricCO> listATAMetrics(@RequestParam String ownerId){
         ATAMetricQry ataMetricQry = new ATAMetricQry();
         ataMetricQry.setOwnerId(ownerId);
-        return metricsService.listATAMetrics(ataMetricQry);
+        return (MultiResponse<ATAMetricCO>) metricsService.invoke(ataMetricQry);
     }
 
     @PostMapping(value = "/metrics/ata")
     public Response addATAMetric(@RequestBody ATAMetricAddCmd ataMetricAddCmd){
-        return metricsService.addATAMetric(ataMetricAddCmd);
+        return metricsService.invoke(ataMetricAddCmd);
     }
 }

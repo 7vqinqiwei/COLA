@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command.query;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.craftsman.domain.metrics.SubMetricType;
 import com.alibaba.craftsman.dto.ATAMetricQry;
@@ -14,11 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ATAMetricQryExe{
+public class ATAMetricQryExe implements CommandExeI<ATAMetricQry> {
 
     @Resource
     private MetricMapper metricMapper;
 
+    @Override
     public MultiResponse<ATAMetricCO> execute(ATAMetricQry cmd) {
         List<MetricDO> metricDOList = metricMapper.listBySubMetric(cmd.getOwnerId(), SubMetricType.ATA.getMetricSubTypeCode());
         List<ATAMetricCO> ataMetricCOList = new ArrayList<>();

@@ -19,7 +19,7 @@ public class MetricItemCreatedHandler {
     public Response execute(MetricItemCreatedEvent event) {
         logger.debug("Handling Event: " + event);
         RefreshScoreCmd cmd = new RefreshScoreCmd(event.getUserId());
-        userProfileService.refreshScore(cmd);
+        userProfileService.invoke(cmd);
         return Response.buildSuccess();
     }
 }

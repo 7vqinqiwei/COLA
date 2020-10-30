@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techinfluence.InfluenceMetric;
 import com.alibaba.craftsman.domain.metrics.techinfluence.PaperMetric;
@@ -18,11 +19,12 @@ import org.springframework.stereotype.Component;
  * @date 2019-03-03 11:41 AM
  */
 @Component
-public class PaperMetricAddCmdExe {
+public class PaperMetricAddCmdExe implements CommandExeI<PaperMetricAddCmd> {
 
     @Autowired
     private MetricGateway metricGateway;
 
+    @Override
     public Response execute(PaperMetricAddCmd cmd) {
         PaperMetricItem paperMetricItem = new PaperMetricItem();
         BeanUtils.copyProperties(cmd.getPaperMetricCO(), paperMetricItem);

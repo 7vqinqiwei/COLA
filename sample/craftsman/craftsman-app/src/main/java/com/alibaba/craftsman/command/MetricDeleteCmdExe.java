@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.dto.MetricDeleteCmd;
 import com.alibaba.craftsman.gatewayimpl.database.MetricMapper;
@@ -14,11 +15,12 @@ import javax.annotation.Resource;
  * @date 2019-03-04 3:01 PM
  */
 @Component
-public class MetricDeleteCmdExe{
+public class MetricDeleteCmdExe implements CommandExeI<MetricDeleteCmd> {
 
     @Resource
     private MetricMapper metricMapper;
 
+    @Override
     public Response execute(MetricDeleteCmd cmd) {
 
         metricMapper.delete(cmd.getMetricId(), cmd.getOperater());

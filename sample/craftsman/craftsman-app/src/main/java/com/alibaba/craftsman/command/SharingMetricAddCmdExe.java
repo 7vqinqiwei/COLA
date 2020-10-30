@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techinfluence.InfluenceMetric;
 import com.alibaba.craftsman.domain.metrics.techinfluence.SharingMetric;
@@ -20,11 +21,12 @@ import javax.annotation.Resource;
  * @date 2019-03-02 5:00 PM
  */
 @Component
-public class SharingMetricAddCmdExe{
+public class SharingMetricAddCmdExe implements CommandExeI<SharingMetricAddCmd> {
 
     @Resource
     private MetricGateway metricGateway;
 
+    @Override
     public Response execute(SharingMetricAddCmd cmd) {
         SharingMetricItem sharingMetricItem = new SharingMetricItem();
         BeanUtils.copyProperties(cmd.getSharingMetricCO(), sharingMetricItem);

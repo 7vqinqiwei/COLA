@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command.query;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.craftsman.dto.UserProfileListQry;
 import com.alibaba.craftsman.dto.clientobject.UserProfileCO;
@@ -13,11 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class UserProfileListQryExe{
+public class UserProfileListQryExe implements CommandExeI<UserProfileListQry> {
 
     @Resource
     private UserProfileMapper userProfileMapper;
 
+    @Override
     public MultiResponse<UserProfileCO> execute(UserProfileListQry qry) {
         List<UserProfileDO> userProfileDOList = userProfileMapper.listByDep(qry.getDep());
         List<UserProfileCO> userProfileCOList = new ArrayList<>();

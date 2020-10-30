@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techcontribution.CodeReviewMetric;
 import com.alibaba.craftsman.domain.metrics.techcontribution.CodeReviewMetricItem;
@@ -18,11 +19,12 @@ import org.springframework.stereotype.Component;
  * @date 2019-03-04 11:14 AM
  */
 @Component
-public class CodeReviewMetricAddCmdExe{
+public class CodeReviewMetricAddCmdExe implements CommandExeI<CodeReviewMetricAddCmd> {
 
     @Autowired
     private MetricGateway metricGateway;
 
+    @Override
     public Response execute(CodeReviewMetricAddCmd cmd) {
         CodeReviewMetricItem codeReviewMetricItem = new CodeReviewMetricItem();
         BeanUtils.copyProperties(cmd, codeReviewMetricItem);

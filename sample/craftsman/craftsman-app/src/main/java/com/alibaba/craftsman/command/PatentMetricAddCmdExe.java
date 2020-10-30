@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techinfluence.AuthorType;
 import com.alibaba.craftsman.domain.metrics.techinfluence.InfluenceMetric;
@@ -20,11 +21,12 @@ import javax.annotation.Resource;
  * @date 2019-03-03 11:41 AM
  */
 @Component
-public class PatentMetricAddCmdExe{
+public class PatentMetricAddCmdExe implements CommandExeI<PatentMetricAddCmd> {
 
     @Resource
     private MetricGateway metricGateway;
 
+    @Override
     public Response execute(PatentMetricAddCmd cmd) {
         PatentMetricItem patentMetricItem = new PatentMetricItem();
         BeanUtils.copyProperties(cmd.getPatentMetricCO(), patentMetricItem);

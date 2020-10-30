@@ -1,5 +1,6 @@
 package com.alibaba.craftsman.command;
 
+import com.alibaba.cola.dto.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techcontribution.ContributionMetric;
 import com.alibaba.craftsman.domain.metrics.techcontribution.MiscMetric;
@@ -19,11 +20,12 @@ import javax.annotation.Resource;
  * @date 2019-03-04 11:15 AM
  */
 @Component
-public class MiscMetricAddCmdExe{
+public class MiscMetricAddCmdExe implements CommandExeI<MiscMetricAddCmd> {
 
     @Resource
     private MetricGateway metricGateway;
 
+    @Override
     public Response execute(MiscMetricAddCmd cmd) {
         MiscMetricItem miscMetricItem = new MiscMetricItem();
         BeanUtils.copyProperties(cmd.getMiscMetricCO(), miscMetricItem);
