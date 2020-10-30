@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command;
 
-import com.alibaba.cola.dto.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.dto.MetricDeleteCmd;
 import com.alibaba.craftsman.gatewayimpl.database.MetricMapper;

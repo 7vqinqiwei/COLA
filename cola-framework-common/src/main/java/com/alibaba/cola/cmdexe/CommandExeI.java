@@ -1,4 +1,7 @@
-package com.alibaba.cola.dto;
+package com.alibaba.cola.cmdexe;
+
+import com.alibaba.cola.dto.Command;
+import com.alibaba.cola.dto.Response;
 
 /**
  * commandExe接口  -- 一个命令器只执行一条命令

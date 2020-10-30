@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.api;
 
-import com.alibaba.cola.dto.CmdExecutorWrapperI;
+import com.alibaba.cola.cmdexe.CmdExecutorWrapperI;
 
 /**
  * MetricsServiceI

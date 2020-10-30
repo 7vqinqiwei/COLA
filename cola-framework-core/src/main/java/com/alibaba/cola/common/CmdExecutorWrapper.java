@@ -1,8 +1,8 @@
 package com.alibaba.cola.common;
 
-import com.alibaba.cola.dto.CmdExecutorWrapperI;
+import com.alibaba.cola.cmdexe.CmdExecutorWrapperI;
 import com.alibaba.cola.dto.Command;
-import com.alibaba.cola.dto.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExeI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.exception.Assert;
 import com.alibaba.cola.exception.ColaException;

@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command.query;
 
-import com.alibaba.cola.dto.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExeI;
 import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.craftsman.dto.UserProfileListQry;
 import com.alibaba.craftsman.dto.clientobject.UserProfileCO;
