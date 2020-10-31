@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techcontribution.CodeReviewMetric;
 import com.alibaba.craftsman.domain.metrics.techcontribution.CodeReviewMetricItem;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-03-04 11:14 AM
  */
 @Component
-public class CodeReviewMetricAddCmdExe implements CommandExeI<CodeReviewMetricAddCmd> {
+public class CodeReviewMetricAddCmdExe implements CommandExecutorI<Response,CodeReviewMetricAddCmd> {
 
     @Autowired
     private MetricGateway metricGateway;

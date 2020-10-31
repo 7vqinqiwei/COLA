@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techinfluence.InfluenceMetric;
 import com.alibaba.craftsman.domain.metrics.techinfluence.SharingMetric;
@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date 2019-03-02 5:00 PM
  */
 @Component
-public class SharingMetricAddCmdExe implements CommandExeI<SharingMetricAddCmd> {
+public class SharingMetricAddCmdExe implements CommandExecutorI<Response,SharingMetricAddCmd> {
 
     @Resource
     private MetricGateway metricGateway;

@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techinfluence.InfluenceMetric;
 import com.alibaba.craftsman.domain.metrics.techinfluence.PaperMetric;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-03-03 11:41 AM
  */
 @Component
-public class PaperMetricAddCmdExe implements CommandExeI<PaperMetricAddCmd> {
+public class PaperMetricAddCmdExe implements CommandExecutorI<Response,PaperMetricAddCmd> {
 
     @Autowired
     private MetricGateway metricGateway;

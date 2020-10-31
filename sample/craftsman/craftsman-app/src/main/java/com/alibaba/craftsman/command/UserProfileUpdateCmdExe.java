@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.convertor.UserProfileConvertor;
 import com.alibaba.craftsman.domain.user.UserProfile;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class UserProfileUpdateCmdExe implements CommandExeI<UserProfileUpdateCmd> {
+public class UserProfileUpdateCmdExe implements CommandExecutorI<Response,UserProfileUpdateCmd> {
 
     @Resource
     private UserProfileGateway userProfileGateway;

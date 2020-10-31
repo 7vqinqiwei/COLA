@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.exception.Assert;
 import com.alibaba.cola.logger.Logger;
@@ -23,7 +23,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Component
-public class RefreshScoreCmdExe implements CommandExeI<RefreshScoreCmd> {
+public class RefreshScoreCmdExe implements CommandExecutorI<Response,RefreshScoreCmd> {
     private Logger logger = LoggerFactory.getLogger(MetricItemCreatedHandler.class);
 
     @Resource

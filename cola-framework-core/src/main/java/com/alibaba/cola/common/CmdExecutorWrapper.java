@@ -2,7 +2,7 @@ package com.alibaba.cola.common;
 
 import com.alibaba.cola.cmdexe.CmdExecutorWrapperI;
 import com.alibaba.cola.dto.Command;
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.exception.Assert;
 import com.alibaba.cola.exception.ColaException;
@@ -27,8 +27,8 @@ public class CmdExecutorWrapper implements CmdExecutorWrapperI {
         String executorName = commandName + ColaConstant.EXE_SUFFIX;
         Object cmdExeObj = ApplicationContextHelper.getBean(executorName);
         Assert.notNull(cmdExeObj);
-        if (cmdExeObj instanceof CommandExeI) {
-            CommandExeI cmdExe = (CommandExeI) cmdExeObj;
+        if (cmdExeObj instanceof CommandExecutorI) {
+            CommandExecutorI cmdExe = (CommandExecutorI) cmdExeObj;
             return cmdExe.execute(command);
         } else {
             throw new ColaException("Cola System : Command Executor is not implements CommandExeI");

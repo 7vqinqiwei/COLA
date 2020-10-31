@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command.query;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.craftsman.dto.UserProfileListQry;
 import com.alibaba.craftsman.dto.clientobject.UserProfileCO;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class UserProfileListQryExe implements CommandExeI<UserProfileListQry> {
+public class UserProfileListQryExe implements CommandExecutorI<MultiResponse,UserProfileListQry> {
 
     @Resource
     private UserProfileMapper userProfileMapper;

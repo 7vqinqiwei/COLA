@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.domain.metrics.techcontribution.ContributionMetric;
 import com.alibaba.craftsman.domain.metrics.techcontribution.MiscMetric;
@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  * @date 2019-03-04 11:15 AM
  */
 @Component
-public class MiscMetricAddCmdExe implements CommandExeI<MiscMetricAddCmd> {
+public class MiscMetricAddCmdExe implements CommandExecutorI<Response,MiscMetricAddCmd> {
 
     @Resource
     private MetricGateway metricGateway;

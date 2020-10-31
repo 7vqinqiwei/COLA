@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.craftsman.convertor.UserProfileConvertor;
 import com.alibaba.craftsman.domain.gateway.UserProfileGateway;
@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  * @date 2019-02-28 6:25 PM
  */
 @Component
-public class UserProfileAddCmdExe implements CommandExeI<UserProfileAddCmd> {
+public class UserProfileAddCmdExe implements CommandExecutorI<Response,UserProfileAddCmd> {
 
     @Resource
     private UserProfileGateway userProfileGateway;

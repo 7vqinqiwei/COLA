@@ -1,6 +1,6 @@
 package com.alibaba.craftsman.command.query;
 
-import com.alibaba.cola.cmdexe.CommandExeI;
+import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.SingleResponse;
 import com.alibaba.craftsman.dto.UserProfileGetQry;
 import com.alibaba.craftsman.dto.clientobject.UserProfileCO;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class UserProfileGetQryExe implements CommandExeI<UserProfileGetQry> {
+public class UserProfileGetQryExe implements CommandExecutorI<SingleResponse,UserProfileGetQry> {
 
     @Resource
     private UserProfileMapper userProfileMapper;
