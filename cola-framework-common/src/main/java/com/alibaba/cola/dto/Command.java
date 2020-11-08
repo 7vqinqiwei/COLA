@@ -14,11 +14,21 @@ public abstract class Command extends DTO{
 
     private BizScenario bizScenario;
 
+    private Long timestamp;
+
 	public BizScenario getBizScenario() {
 		return bizScenario;
 	}
 
 	public void setBizScenario(BizScenario bizScenario) {
 		this.bizScenario = bizScenario;
+	}
+
+	public Long getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Long timestamp) {
+		this.timestamp = timestamp;
 	}
 }
