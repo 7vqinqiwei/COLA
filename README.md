@@ -23,6 +23,8 @@ COLA首先是作为架构的存在，是一种应用架构思想，主要是制�
 
 我们提供了两个Archetype，分别是cola-archetype-service和cola-archetype-web
 
+seven 分支拓展了两个Archetype,分别是cola-archetype-seven-mybatis，cola-archetype-seven-jpa
+
 ### cola-archetype-service
 用来生成纯后端应用（没有Adapter），生成应用的命令为：
 ```
@@ -41,7 +43,7 @@ mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversio
 mvn archetype:generate -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-seven-jpa -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0-SNAPSHOT
 ```
 
-### cola-archetype-seven-jpa
+### cola-archetype-seven-mybatis
 本地安装请增加 -DarchetypeCatalog=local 参数
 ```
 mvn archetype:generate -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-seven-mybatis -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0-SNAPSHOT
