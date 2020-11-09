@@ -3,19 +3,16 @@
 #set( $symbol_escape = '\' )
 package ${package};
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.spring4all.swagger.EnableSwagger2Doc;
 
 /**
  * Spring Boot Starter
- *
- * COLA framework initialization is configured in {@link ${package}.config.ColaConfig}
- *
- * @author Frank Zhang
+ * @author seven
  */
-@SpringBootApplication(scanBasePackages = {"${package}","com.alibaba.cola"})
-@MapperScan("${package}.repository")
+@SpringBootApplication(scanBasePackages = {"com.alibaba.cola","com.seven.cola.support","${package}"})
+@EnableSwagger2Doc
 public class Application {
 
     public static void main(String[] args) {

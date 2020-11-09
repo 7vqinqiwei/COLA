@@ -1,0 +1,52 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /${artifactId}
+logging:
+  level:
+    root: info
+
+swagger:
+  contact:
+    url:
+    name: seven
+  exclude-path: /error,/ops/**
+  license: ${artifactId} Project
+  termsOfServiceUrl:
+  base-package: ${package}
+  licenseUrl:
+  description:
+  version: ${version}
+  base-path: /**
+  title: ${artifactId} interface
+  enabled: true
+
+spring:
+  application:
+    name: ${artifactId}
+  messages:
+    encoding: UTF-8
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    password: root
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #database-platform: org.hibernate.dialect.Oracle12cDialect       # MYSQL
+    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect    # ORACLE
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL    # 支持 MYSQL  ORACLE
+    show-sql: true
+    batch_size: 300
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.enable_lazy_load_no_trans: false
+      javax.persistence.sharedCache.mode: NONE
