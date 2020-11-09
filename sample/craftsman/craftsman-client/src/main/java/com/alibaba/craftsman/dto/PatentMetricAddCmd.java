@@ -1,6 +1,5 @@
 package com.alibaba.craftsman.dto;
 
-import com.alibaba.craftsman.dto.clientobject.ATAMetricCO;
 import com.alibaba.craftsman.dto.clientobject.PatentMetricCO;
 import lombok.Data;
 

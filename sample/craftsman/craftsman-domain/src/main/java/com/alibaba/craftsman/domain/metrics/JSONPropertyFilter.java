@@ -14,10 +14,10 @@ public class JSONPropertyFilter implements PropertyFilter {
 
     @Override
     public boolean apply(Object object, String name, Object value) {
-        if(name.equalsIgnoreCase("context")){
+        if("context".equalsIgnoreCase(name)){
             return false;
         }
-        if(name.equalsIgnoreCase("extValues")){
+        if("extValues".equalsIgnoreCase(name)){
             return false;
         }
         return true;
