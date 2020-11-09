@@ -15,9 +15,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!--Spring boot-->
-        <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
         <!-- Cola -->
-        <cola.framework.version>3.1.0</cola.framework.version>
+        <cola.framework.version>3.1.0-SNAPSHOT</cola.framework.version>
         <!-- swagger2 -->
         <swagger2.version>1.9.1.RELEASE</swagger2.version>
         <io.swagger.version>1.5.24</io.swagger.version>
@@ -150,13 +150,13 @@
                 <optional>true</optional>
             </dependency>
             <dependency>
-                <groupId>com.wingto.space</groupId>
-                <artifactId>controller-support</artifactId>
+                <groupId>com.aliyun</groupId>
+                <artifactId>seven-adaptor-support</artifactId>
                 <version>${common-adaptor.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.wingto.space</groupId>
-                <artifactId>common-mybatis</artifactId>
+                <groupId>com.aliyun</groupId>
+                <artifactId>seven-mybatis-support</artifactId>
                 <version>${common-mybatis.version}</version>
             </dependency>
 

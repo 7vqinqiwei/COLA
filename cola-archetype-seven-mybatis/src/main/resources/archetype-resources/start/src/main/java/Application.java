@@ -9,12 +9,9 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 
 /**
  * Spring Boot Starter
- *
- * COLA framework initialization is configured in {@link ${package}.config.ColaConfig}
- *
- * @author Frank Zhang
+ * @author seven
  */
-@SpringBootApplication(scanBasePackages = {"${package}","com.alibaba.cola","com.wingto.space.controller.support"})
+@SpringBootApplication(scanBasePackages = {"com.alibaba.cola","com.seven.cola.support","${package}"})
 @EnableSwagger2Doc
 public class Application {
 

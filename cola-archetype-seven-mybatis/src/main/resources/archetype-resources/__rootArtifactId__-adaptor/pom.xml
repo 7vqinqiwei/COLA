@@ -30,8 +30,8 @@
             <artifactId>swagger-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.wingto.space</groupId>
-            <artifactId>controller-support</artifactId>
+            <groupId>com.aliyun</groupId>
+            <artifactId>seven-adaptor-support</artifactId>
         </dependency>
     </dependencies>
 

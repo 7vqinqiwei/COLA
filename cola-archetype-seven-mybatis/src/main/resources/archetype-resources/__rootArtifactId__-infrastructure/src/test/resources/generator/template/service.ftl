@@ -1,6 +1,6 @@
 package ${basePackage};
 import ${basePackage}.databaseobject.${modelNameUpperCamel};
-import com.wingto.space.common.mybatis.core.Repository;
+import com.seven.cola.mybatis.core.Repository;
 
 
 /**

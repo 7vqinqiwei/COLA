@@ -34,8 +34,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.wingto.space</groupId>
-			<artifactId>common-mybatis</artifactId>
+			<groupId>com.aliyun</groupId>
+			<artifactId>seven-mybatis-support</artifactId>
 		</dependency>
 
 		<dependency>

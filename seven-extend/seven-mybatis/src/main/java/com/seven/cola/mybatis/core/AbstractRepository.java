@@ -9,7 +9,10 @@ import tk.mybatis.mapper.entity.Condition;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * 基于通用MyBatis Mapper插件的Service接口的实现
@@ -25,19 +28,23 @@ public abstract class AbstractRepository<T,ID> implements Repository<T,ID> {
      */
     private final Class<T> modelClass;
 
+    private final String COMMA = ",";
 
+    private final String SINGLE_QUOTE = "'";
+
+    @SuppressWarnings({"unchecked"})
     public AbstractRepository() {
         ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
         modelClass = (Class<T>) pt.getActualTypeArguments()[0];
     }
 
     @Override
-    public void save(T model) {
+    public void insert(T model) {
         mapper.insertSelective(model);
     }
 
     @Override
-    public void save(List<T> models) {
+    public void insertAll(List<T> models) {
         mapper.insertList(models);
     }
 
@@ -47,8 +54,27 @@ public abstract class AbstractRepository<T,ID> implements Repository<T,ID> {
     }
 
     @Override
-    public void deleteByIds(String ids) {
-        mapper.deleteByIds(ids);
+    public void deleteByIds(List<ID> ids) {
+        if (null != ids && ids.size() > 0) {
+            if (ids.size() == 1) {
+                mapper.deleteByPrimaryKey(ids.get(0));
+            }
+            ids = ids.stream().filter(Objects::nonNull).collect(Collectors.toList());
+            StringBuilder deleteIds = new StringBuilder();
+            if (ids.get(0) instanceof String) {
+                for (ID id : ids) {
+                    deleteIds.append(SINGLE_QUOTE).append(id).append(SINGLE_QUOTE).append(COMMA);
+                }
+            } else {
+                for (ID id : ids) {
+                    deleteIds.append(id).append(COMMA);
+                }
+            }
+            if (deleteIds.length() >0) {
+                String realIds = deleteIds.substring(0,deleteIds.length()-1);
+                mapper.deleteByIds(realIds);
+            }
+        }
     }
 
     @Override
@@ -76,8 +102,30 @@ public abstract class AbstractRepository<T,ID> implements Repository<T,ID> {
     }
 
     @Override
-    public List<T> findByIds(String ids) {
-        return mapper.selectByIds(ids);
+    public List<T> findByIds(List<ID> ids) {
+        List<T> list = new ArrayList();
+        if (null != ids && ids.size() > 0) {
+            if (ids.size() == 1) {
+                list.add(mapper.selectByPrimaryKey(ids.get(0)));
+                return list;
+            }
+            ids = ids.stream().filter(Objects::nonNull).collect(Collectors.toList());
+            StringBuilder stringBuilder = new StringBuilder();
+            if (ids.get(0) instanceof String) {
+                for (ID id : ids) {
+                    stringBuilder.append(SINGLE_QUOTE).append(id).append(SINGLE_QUOTE).append(COMMA);
+                }
+            } else {
+                for (ID id : ids) {
+                    stringBuilder.append(id).append(COMMA);
+                }
+            }
+            if (stringBuilder.length() >0) {
+                String realIds = stringBuilder.substring(0,stringBuilder.length()-1);
+                list.addAll(mapper.selectByIds(realIds));
+            }
+        }
+        return list;
     }
 
     @Override

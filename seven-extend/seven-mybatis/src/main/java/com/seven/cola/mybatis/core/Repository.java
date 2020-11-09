@@ -14,13 +14,13 @@ public interface Repository<T,ID> {
      * 持久化
      * @param model
      */
-    void save(T model);
+    void insert(T model);
 
     /**
      * 批量持久化
      * @param models
      */
-    void save(List<T> models);
+    void insertAll(List<T> models);
 
     /**
      * 通过主鍵刪除
@@ -32,7 +32,7 @@ public interface Repository<T,ID> {
      * 批量刪除 eg：ids -> “1,2,3,4”
      * @param ids
      */
-    void deleteByIds(String ids);
+    void deleteByIds(List<ID> ids);
 
     /**
      * 更新
@@ -61,7 +61,7 @@ public interface Repository<T,ID> {
      * @param ids
      * @return
      */
-    List<T> findByIds(String ids);
+    List<T> findByIds(List<ID> ids);
 
     /**
      * 根据条件查找

@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.config;
 
-import com.wingto.space.common.mybatis.config.AbstractMybatisConfig;
+import com.seven.cola.mybatis.config.AbstractMybatisConfig;
 import org.springframework.context.annotation.Configuration;
 
 /**

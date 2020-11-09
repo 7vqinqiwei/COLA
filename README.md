@@ -26,19 +26,25 @@ COLA首先是作为架构的存在，是一种应用架构思想，主要是制�
 ### cola-archetype-service
 用来生成纯后端应用（没有Adapter），生成应用的命令为：
 ```
-mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoService -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-service -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0
+mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoService -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-service -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0-SNAPSHOT
 ```
 
 ### cola-archetype-web
 其实统一生成web.archetype 即可 ，不想使用adapter，手动删除该模块即可：毕竟web比service只是多了一个adapter模块
 用来生成Web后端应用（有Adapter），生成应用的命令为：
 ```
-mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-web -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0
+mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-web -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0-SNAPSHOT
 ```
 ### cola-archetype-seven-jpa
 本地安装请增加 -DarchetypeCatalog=local 参数
 ```
-mvn archetype:generate -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-seven-jpa -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0
+mvn archetype:generate -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-seven-jpa -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0-SNAPSHOT
+```
+
+### cola-archetype-seven-jpa
+本地安装请增加 -DarchetypeCatalog=local 参数
+```
+mvn archetype:generate -DgroupId=com.alibaba.demo -DartifactId=demoWeb -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-seven-mybatis -DarchetypeGroupId=com.aliyun -DarchetypeVersion=3.1.0-SNAPSHOT
 ```
 
 ## COLA框架
@@ -113,7 +119,7 @@ https://blog.csdn.net/significantfrank/article/details/106976804
 2. 如果没有，继续寻找"tmall.placeOrder"实现
 3. 如果没有，继续寻找"tmall"实现
 
-## 3.1.0 版本
+## 3.1.0-SNAPSHOT 版本
 https://blog.csdn.net/significantfrank/article/details/109529311
 1. 进一步简化了cola-core，只保留了扩展能力。
 2. 将exception从cola-core移入到cola-common。

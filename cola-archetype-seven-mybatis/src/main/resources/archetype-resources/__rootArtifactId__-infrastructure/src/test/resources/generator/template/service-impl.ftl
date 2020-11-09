@@ -3,9 +3,8 @@ package ${basePackage}.impl;
 import ${basePackage}.mapper.${modelNameUpperCamel}Mapper;
 import ${basePackage}.databaseobject.${modelNameUpperCamel};
 import ${basePackage}.${modelNameUpperCamel}Repository;
-import com.wingto.space.common.mybatis.core.AbstractRepository;
+import com.seven.cola.mybatis.core.AbstractRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 

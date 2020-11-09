@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.aliyun</groupId>
   <artifactId>cola-framework-archetype-seven-jpa</artifactId>
-  <version>3.1.0</version>
+  <version>3.1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>cola framework archetype seven jpa</name>

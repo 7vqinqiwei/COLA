@@ -250,7 +250,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.1.0</version>
+                <version>3.1.0-SNAPSHOT</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -380,34 +380,14 @@
             </dependency>
             <!--公共组件-->
             <dependency>
-                <groupId>com.wingto.space</groupId>
-                <artifactId>controller-support</artifactId>
+                <groupId>com.aliyun</groupId>
+                <artifactId>seven-adaptor-support</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>com.wingto.space.data</groupId>
-                <artifactId>dynamic-query-api</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wingto.space.data</groupId>
-                <artifactId>dynamic-query-mysql</artifactId>
-                <version>${dynamic-support.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wingto.space.data</groupId>
-                <artifactId>dynamic-query-oracle</artifactId>
-                <version>${dynamic-support.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wingto.space</groupId>
-                <artifactId>common-mybatis</artifactId>
-                <version>${common-mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wingto.space</groupId>
-                <artifactId>space-common</artifactId>
-                <version>${space.common.version}</version>
+                <groupId>com.aliyun</groupId>
+                <artifactId>seven-mybatis-support</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.flywaydb</groupId>
