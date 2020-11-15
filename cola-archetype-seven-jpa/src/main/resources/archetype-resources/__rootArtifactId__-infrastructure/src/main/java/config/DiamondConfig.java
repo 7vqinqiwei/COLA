@@ -3,6 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package}.config;
 
+/**
+ * @author seven
+ */
 public class DiamondConfig {
-    public final static String DummyConfig = "DummyConfig";
+    public final static String DUMMY_CONFIG = "DummyConfig";
 }

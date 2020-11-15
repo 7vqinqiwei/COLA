@@ -11,8 +11,10 @@ import javax.persistence.Entity;
  * @author qinqw
  */
 @Entity
-@Table(name = "tb_user")
+@Table(name = UserEntity.TABLE_NAME)
 public class UserEntity extends StringMetaModel {
+
+    public final static String TABLE_NAME = "tb_user";
 
     @Id
     private String id;
