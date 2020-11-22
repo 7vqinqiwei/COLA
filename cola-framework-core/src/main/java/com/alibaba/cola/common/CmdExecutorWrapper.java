@@ -6,6 +6,7 @@ import com.alibaba.cola.cmdexe.CommandExecutorI;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.exception.Assert;
 import com.alibaba.cola.exception.ColaException;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
 /**
  * 执行器包装类
@@ -25,7 +26,17 @@ public class CmdExecutorWrapper implements CmdExecutorWrapperI {
         Assert.notNull(command);
         String commandName = command.getClass().getSimpleName();
         String executorName = commandName + ColaConstant.EXE_SUFFIX;
-        Object cmdExeObj = ApplicationContextHelper.getBean(executorName);
+        Object cmdExeObj = null;
+        try {
+            String tempExeName = executorName.substring(0,1).toLowerCase() + executorName.substring(1);
+            cmdExeObj = ApplicationContextHelper.getBean(tempExeName);
+        } catch (NoSuchBeanDefinitionException exception) {
+            try {
+                cmdExeObj = ApplicationContextHelper.getBean(executorName);
+            } catch (NoSuchBeanDefinitionException exception1) {
+                throw new ColaException("Cola System : Command Executor is not found");
+            }
+        }
         Assert.notNull(cmdExeObj);
         if (cmdExeObj instanceof CommandExecutorI) {
             CommandExecutorI cmdExe = (CommandExecutorI) cmdExeObj;
