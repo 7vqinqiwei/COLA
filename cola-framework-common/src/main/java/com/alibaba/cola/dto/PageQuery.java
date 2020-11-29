@@ -1,7 +1,6 @@
 package com.alibaba.cola.dto;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -13,10 +12,17 @@ import java.util.List;
  */
 public abstract class PageQuery extends Query {
 
+    public static final String ASC = "ASC";
+
+    public static final String DESC = "DESC";
+
+    private static final int DEFAULT_PAGE_SIZE = 10;
+
     private int pageNum = 1;
-    private int pageSize = 10;
+    private int pageSize = DEFAULT_PAGE_SIZE;
     private boolean needTotalCount = true;
     private List<OrderDesc> orderDescs;
+    private String groupBy;
 
     public int getPageNum() {
         return pageNum;
@@ -55,5 +61,13 @@ public abstract class PageQuery extends Query {
 
     public int getOffset() {
         return pageNum > 0 ? (pageNum - 1) * pageSize : 0;
+    }
+
+    public String getGroupBy() {
+        return groupBy;
+    }
+
+    public void setGroupBy(String groupBy) {
+        this.groupBy = groupBy;
     }
 }
