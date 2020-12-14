@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /${artifactId}
+logging:
+  level:
+    root: info
+
+swagger:
+  contact:
+    url:
+    name: seven
+  exclude-path: /error,/ops/**
+  license: ${artifactId} Project
+  termsOfServiceUrl:
+  base-package: ${package}
+  licenseUrl:
+  description:
+  version: ${version}
+  base-path: /**
+  title: ${artifactId} interface
+  enabled: true
+
+spring:
+  application:
+    name: ${artifactId}
+  messages:
+    encoding: UTF-8
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    password: root
+    username: root
