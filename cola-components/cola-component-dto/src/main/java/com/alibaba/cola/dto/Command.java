@@ -10,4 +10,13 @@ public abstract class Command extends DTO {
 
     private static final long serialVersionUID = 1L;
 
+    private Long timestamp;
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
 }

@@ -7,6 +7,8 @@ package com.alibaba.cola.dto;
  */
 public class SingleResponse<T> extends Response {
 
+    public static final String DEFAULT_FAIL_CODE = "DEFAULT_FAIL_CODE";
+
     private T data;
 
     public T getData() {
@@ -21,6 +23,13 @@ public class SingleResponse<T> extends Response {
         SingleResponse response = new SingleResponse();
         response.setSuccess(true);
         return response;
+    }
+    public static SingleResponse buildFailure() {
+        return buildFailure("系统未定义异常");
+    }
+
+    public static SingleResponse buildFailure(String errMessage) {
+        return buildFailure(DEFAULT_FAIL_CODE,errMessage);
     }
 
     public static SingleResponse buildFailure(String errCode, String errMessage) {
@@ -38,4 +47,7 @@ public class SingleResponse<T> extends Response {
         return response;
     }
 
+    public static <T> SingleResponse<T> data(T data) {
+        return of(data);
+    }
 }
