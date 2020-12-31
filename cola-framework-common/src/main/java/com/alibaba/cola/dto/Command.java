@@ -2,6 +2,8 @@ package com.alibaba.cola.dto;
 
 import com.alibaba.cola.extension.BizScenario;
 
+import java.io.Serializable;
+
 /**
  * Command stands for a request from Client.
  * According CommandExecutor will help to handle the business logic. This is a classic Command Pattern
@@ -15,6 +17,8 @@ public abstract class Command extends DTO{
     private BizScenario bizScenario;
 
     private Long timestamp;
+
+    private Serializable operator;
 
 	public BizScenario getBizScenario() {
 		return bizScenario;
@@ -30,5 +34,13 @@ public abstract class Command extends DTO{
 
 	public void setTimestamp(Long timestamp) {
 		this.timestamp = timestamp;
+	}
+
+	public Serializable getOperator() {
+		return operator;
+	}
+
+	public void setOperator(Serializable operator) {
+		this.operator = operator;
 	}
 }
