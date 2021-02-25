@@ -1,20 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.alibaba.cola</groupId>
+        <artifactId>cola-components-parent</artifactId>
+        <version>4.1.0-SNAPSHOT</version>
+    </parent>
 
-    <name>cola-component-catchlog-starter</name>
-    <groupId>com.alibaba.cola</groupId>
     <artifactId>cola-component-catchlog-starter</artifactId>
-    <version>1.0.0</version>
     <packaging>jar</packaging>
+    <name>${project.artifactId}:${project.version}</name>
+    <description>${project.artifactId}</description>
+    <url>https://github.com/alibaba/COLA</url>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
-        <cola.version>1.0.0</cola.version>
-    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v2.1</name>
+            <url>https://github.com/alibaba/COLA/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/alibaba/COLA.git</connection>
+        <developerConnection>scm:git:https://github.com/alibaba/COLA.git</developerConnection>
+        <url>https://github.com/alibaba/COLA</url>
+    </scm>
+    <issueManagement>
+        <url>https://github.com/alibaba/COLA/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+    <developers>
+        <developer>
+            <id>significantfrank</id>
+            <name>Frank Zhang</name>
+            <email>25216348(at)qq.com</email>
+            <roles>
+                <role>Developer</role>
+                <role>Architect</role>
+            </roles>
+            <timezone>+8</timezone>
+            <url>https://github.com/significantfrank</url>
+        </developer>
+        <developer>
+            <id>oldratlee</id>
+            <name>Jerry Lee</name>
+            <email>oldratlee(at)gmail.com</email>
+            <roles>
+                <role>Developer</role>
+                <role>CI/SCM Engineer</role>
+            </roles>
+            <timezone>+8</timezone>
+            <url>https://github.com/oldratlee</url>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
@@ -39,14 +77,30 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.10</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.60</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- 日志包 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!-- cola组件依赖 -->
+        <dependency>
+            <groupId>com.alibaba.cola</groupId>
+            <artifactId>cola-component-dto</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cola</groupId>
+            <artifactId>cola-component-exception</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
         <!-- 测试包 -->
@@ -56,32 +110,5 @@
             <version>${spring.boot.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- 日志包 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.9</version>
-        </dependency>
-
-        <!-- cola组件依赖 -->
-        <dependency>
-            <groupId>com.alibaba.cola</groupId>
-            <artifactId>cola-component-dto</artifactId>
-            <version>${cola.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cola</groupId>
-            <artifactId>cola-component-exception</artifactId>
-            <version>${cola.version}</version>
-        </dependency>
-
     </dependencies>
-
 </project>
