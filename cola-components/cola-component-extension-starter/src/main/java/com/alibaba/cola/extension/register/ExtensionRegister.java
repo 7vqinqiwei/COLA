@@ -8,7 +8,11 @@
 package com.alibaba.cola.extension.register;
 
 import com.alibaba.cola.extension.*;
+
+import org.springframework.aop.support.AopUtils;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ClassUtils;
 
 import javax.annotation.Resource;
 
@@ -27,14 +31,16 @@ public class ExtensionRegister{
 
     public void doRegistration(ExtensionPointI extensionObject){
         Class<?>  extensionClz = extensionObject.getClass();
-        Extension extensionAnn = extensionClz.getDeclaredAnnotation(Extension.class);
+        if (AopUtils.isAopProxy(extensionObject)) {
+            extensionClz = ClassUtils.getUserClass(extensionObject);
+        }
+        Extension extensionAnn = AnnotationUtils.findAnnotation(extensionClz, Extension.class);
         BizScenario bizScenario = BizScenario.valueOf(extensionAnn.bizId(), extensionAnn.useCase(), extensionAnn.scenario());
         ExtensionCoordinate extensionCoordinate = new ExtensionCoordinate(calculateExtensionPoint(extensionClz), bizScenario.getUniqueIdentity());
         ExtensionPointI preVal = extensionRepository.getExtensionRepo().put(extensionCoordinate, extensionObject);
         if (preVal != null) {
             throw new RuntimeException("Duplicate registration is not allowed for :" + extensionCoordinate);
         }
-
     }
 
     /**
@@ -42,7 +48,7 @@ public class ExtensionRegister{
      * @return
      */
     private String calculateExtensionPoint(Class<?> targetClz) {
-        Class[] interfaces = targetClz.getInterfaces();
+        Class<?>[] interfaces = ClassUtils.getAllInterfacesForClass(targetClz);
         if (interfaces == null || interfaces.length == 0)
             throw new RuntimeException("Please assign a extension point interface for "+targetClz);
         for (Class intf : interfaces) {
