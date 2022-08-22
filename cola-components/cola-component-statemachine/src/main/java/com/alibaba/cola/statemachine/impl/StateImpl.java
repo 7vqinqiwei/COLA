@@ -5,8 +5,7 @@ import com.alibaba.cola.statemachine.Transition;
 import com.alibaba.cola.statemachine.Visitor;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Optional;
+import java.util.List;
 
 /**
  * StateImpl
@@ -16,7 +15,7 @@ import java.util.Optional;
  */
 public class StateImpl<S,E,C> implements State<S,E,C> {
     protected final S stateId;
-    private HashMap<E, Transition<S, E,C>> transitions = new HashMap<>();
+    private EventTransitions eventTransitions = new EventTransitions();
 
     StateImpl(S stateId){
         this.stateId = stateId;
@@ -31,33 +30,19 @@ public class StateImpl<S,E,C> implements State<S,E,C> {
         newTransition.setType(transitionType);
 
         Debugger.debug("Begin to add new transition: "+ newTransition);
-        verify(event, newTransition);
-        transitions.put(event, newTransition);
+
+        eventTransitions.put(event, newTransition);
         return newTransition;
     }
 
-    /**
-     * Per one source and target state, there is only one transition is allowed
-     * @param event
-     * @param newTransition
-     */
-    private void verify(E event, Transition<S,E,C> newTransition) {
-        Transition existingTransition = transitions.get(event);
-        if(existingTransition != null){
-            if(existingTransition.equals(newTransition)){
-                throw new StateMachineException(existingTransition+" already Exist, you can not add another one");
-            }
-        }
+    @Override
+    public List<Transition<S, E, C>> getEventTransitions(E event) {
+        return eventTransitions.get(event);
     }
 
     @Override
-    public Optional<Transition<S, E, C>> getTransition(E event) {
-        return Optional.ofNullable(transitions.get(event));
-    }
-
-    @Override
-    public Collection<Transition<S, E, C>> getTransitions() {
-        return transitions.values();
+    public Collection<Transition<S, E, C>> getAllTransitions() {
+        return eventTransitions.allTransitions();
     }
 
     @Override

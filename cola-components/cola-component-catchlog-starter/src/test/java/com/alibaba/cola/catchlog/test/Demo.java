@@ -68,7 +68,7 @@ public class Demo implements ApplicationContextAware {
         }
     }
 
-    public SingleResponse executeWithBizExceptionAndResponse(){
+    public Response executeWithBizExceptionAndResponse(){
         if(true){
             throw new BizException("execute With BizException And Response");
         }
@@ -94,8 +94,12 @@ public class Demo implements ApplicationContextAware {
     }
 
     @AllArgsConstructor
-    public static class DemoResponse {
+    public static class DemoResponse extends Response{
         public String name;
         public boolean isSuccess;
+
+        public DemoResponse(){
+
+        }
     }
 }

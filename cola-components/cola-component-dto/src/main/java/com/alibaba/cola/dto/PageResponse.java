@@ -62,7 +62,13 @@ public class PageResponse<T> extends Response {
     }
 
     public List<T> getData() {
-        return null == data ? Collections.emptyList() : new ArrayList<>(data);
+        if (null == data) {
+            return Collections.emptyList();
+        }
+        if (data instanceof List) {
+            return (List<T>) data;
+        }
+        return new ArrayList<>(data);
     }
 
     public void setData(Collection<T> data) {
@@ -75,7 +81,7 @@ public class PageResponse<T> extends Response {
     }
 
     public boolean isEmpty() {
-        return data == null || data.size() == 0;
+        return data == null || data.isEmpty();
     }
 
     public boolean isNotEmpty() {
