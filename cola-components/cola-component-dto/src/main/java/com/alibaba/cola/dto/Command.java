@@ -10,7 +10,10 @@ public abstract class Command extends DTO {
 
     private static final long serialVersionUID = 1L;
 
-    private Long timestamp;
+    /**
+     * 事件创建时间
+     */
+    private Long timestamp = System.currentTimeMillis();
 
     public Long getTimestamp() {
         return timestamp;

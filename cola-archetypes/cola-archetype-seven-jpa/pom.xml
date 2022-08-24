@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.alibaba.cola</groupId>
   <artifactId>cola-framework-archetype-seven-jpa</artifactId>
-  <version>4.0.0-SNAPSHOT</version>
+  <version>4.4.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>cola framework archetype seven jpa</name>
