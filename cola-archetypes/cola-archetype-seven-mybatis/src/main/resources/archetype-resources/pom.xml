@@ -17,7 +17,8 @@
         <!--Spring boot-->
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
         <!-- Cola -->
-        <cola.framework.version>3.1.0-SNAPSHOT</cola.framework.version>
+        <cola.components.version>4.4.0-SNAPSHOT</cola.components.version>
+
         <!-- swagger2 -->
         <swagger2.version>1.9.1.RELEASE</swagger2.version>
         <io.swagger.version>1.5.24</io.swagger.version>
@@ -34,15 +35,11 @@
         <dependencies>
             <!--Framework-->
             <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>cola-common</artifactId>
-                <version>${cola.framework.version}</version>
-            </dependency>
-            <!-- cola extension,this is optional -->
-            <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>cola-core</artifactId>
-                <version>${cola.framework.version}</version>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-components-bom</artifactId>
+                <version>${cola.components.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!--Framework Ended-->
             <!--Project modules-->

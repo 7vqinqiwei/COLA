@@ -24,11 +24,13 @@ public class Customer{
     }
 
     public boolean isBigCompany() {
-        return registeredCapital > 10000000; //注册资金大于1000万的是大企业
+        //注册资金大于1000万的是大企业
+        return registeredCapital > 10000000;
     }
 
     public boolean isSME() {
-        return registeredCapital > 10000 && registeredCapital < 1000000; //注册资金大于10万小于100万的为中小企业
+        //注册资金大于10万小于100万的为中小企业
+        return registeredCapital > 10000 && registeredCapital < 1000000;
     }
 
     public void checkConflict(){

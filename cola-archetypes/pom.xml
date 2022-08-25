@@ -53,6 +53,8 @@
     </developers>
 
     <modules>
+        <module>cola-archetype-seven-jpa</module>
+        <module>cola-archetype-seven-mybatis</module>
         <module>cola-archetype-service</module>
         <module>cola-archetype-web</module>
     </modules>

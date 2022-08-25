@@ -22,6 +22,6 @@ public class CustomerListByNameQryExe{
         CustomerDTO customerDTO = new CustomerDTO();
         customerDTO.setCustomerName("Frank");
         customerDTOList.add(customerDTO);
-        return MultiResponse.ofWithoutTotal(customerDTOList);
+        return MultiResponse.of(customerDTOList);
     }
 }

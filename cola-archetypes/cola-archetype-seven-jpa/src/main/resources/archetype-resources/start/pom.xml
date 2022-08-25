@@ -34,7 +34,7 @@
         <dependency>
             <groupId>com.wayne</groupId>
             <artifactId>com.wayne.netty.httpserver</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${httpserver.version}</version>
         </dependency>
     </dependencies>
 </project>

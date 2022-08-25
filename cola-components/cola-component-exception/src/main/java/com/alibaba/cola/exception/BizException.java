@@ -15,6 +15,10 @@ public class BizException extends BaseException {
         super(DEFAULT_ERR_CODE, errMessage);
     }
 
+    public BizException(ErrorCodeI errorCodeI, String errMessage) {
+        this(errorCodeI.getErrCode(), errorCodeI.getErrDesc(), new RuntimeException(errMessage));
+    }
+
     public BizException(String errCode, String errMessage) {
         super(errCode, errMessage);
     }

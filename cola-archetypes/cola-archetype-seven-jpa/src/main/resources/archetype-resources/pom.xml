@@ -14,15 +14,40 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+
         <!--Spring boot-->
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+
         <!-- Cola -->
-        <cola.framework.version>3.1.0-SNAPSHOT</cola.framework.version>
+        <cola.components.version>4.4.0-SNAPSHOT</cola.components.version>
+
         <!-- swagger2 -->
         <swagger2.version>1.9.1.RELEASE</swagger2.version>
         <io.swagger.version>1.5.24</io.swagger.version>
 
+        <!-- spring mvc 增强 -->
         <common-adaptor.version>1.0.0-SNAPSHOT</common-adaptor.version>
+
+        <!-- jpa 增强 -->
+        <httpserver.version>1.0.0-SNAPSHOT</httpserver.version>
+
+        <!-- validation校验 -->
+        <validation-api.version>2.0.0.Final</validation-api.version>
+        <hibernate-validator.version>6.0.7.Final</hibernate-validator.version>
+        <javax.el-api.version>3.0.0</javax.el-api.version>
+        <javax.el.version>2.2.6</javax.el.version>
+
+        <!-- lombok -->
+        <lombok.version>1.18.8</lombok.version>
+
+        <!-- fastjson -->
+        <fastjson.version>1.2.55</fastjson.version>
+
+        <reflections.version>0.9.10</reflections.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+        <guava.version>20.0</guava.version>
 
     </properties>
 
@@ -30,15 +55,11 @@
         <dependencies>
             <!--Framework-->
             <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>cola-common</artifactId>
-                <version>${cola.framework.version}</version>
-            </dependency>
-            <!-- cola extension,this is optional -->
-            <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>cola-core</artifactId>
-                <version>${cola.framework.version}</version>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-components-bom</artifactId>
+                <version>${cola.components.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <!--Framework Ended-->
             <!--Project modules-->
@@ -81,44 +102,45 @@
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
-                <version>2.0.0.Final</version>
+                <version>${validation-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
                 <artifactId>hibernate-validator</artifactId>
-                <version>6.0.7.Final</version>
+                <version>${hibernate-validator.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.el</groupId>
                 <artifactId>javax.el-api</artifactId>
-                <version>3.0.0</version>
+                <version>${javax.el-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.web</groupId>
                 <artifactId>javax.el</artifactId>
-                <version>2.2.6</version>
+                <version>${javax.el.version}</version>
             </dependency>
             <!--Validation API End -->
+
             <!-- Misc -->
             <dependency>
                 <groupId>org.reflections</groupId>
                 <artifactId>reflections</artifactId>
-                <version>0.9.10</version>
+                <version>${reflections.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.8</version>
+                <version>${lombok.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.4</version>
+                <version>${commons-lang3.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.55</version>
+                <version>${fastjson.version}</version>
             </dependency>
             <!-- Misc End -->
 
@@ -142,13 +164,19 @@
             <dependency>
                 <groupId>com.wayne</groupId>
                 <artifactId>httpserver-jpa-base</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>${httpserver.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.wayne</groupId>
                 <artifactId>com.wayne.netty.httpserver</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>${httpserver.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
 
         </dependencies>
@@ -160,7 +188,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>${maven-source-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
