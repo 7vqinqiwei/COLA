@@ -61,6 +61,7 @@
         <module>cola-component-catchlog-starter</module>
         <module>cola-component-test-container</module>
         <module>cola-components-bom</module>
+        <module>cola-component-adapter-ext</module>
     </modules>
 
     <properties>
