@@ -61,8 +61,9 @@ public class StateImpl<S,E,C> implements State<S,E,C> {
     public boolean equals(Object anObject){
         if(anObject instanceof State){
             State other = (State)anObject;
-            if(this.stateId.equals(other.getId()))
+            if(this.stateId.equals(other.getId())) {
                 return true;
+            }
         }
         return false;
     }

@@ -51,6 +51,7 @@ public class MetricGatewayImpl implements MetricGateway {
     private DomainEventPublisher domainEventPublisher;
 
 
+    @Override
     public void save(MetricItem metricItem){
         MetricDO metricDO = MetricConvertor.toDataObject(metricItem);
 
@@ -64,6 +65,7 @@ public class MetricGatewayImpl implements MetricGateway {
         domainEventPublisher.publish(metricItemCreatedEvent);
     }
 
+    @Override
     public List<SubMetric> listByTechContribution(String userId){
         List<MetricDO> metricDOList = metricMapper.listByMainMetric(userId, MainMetricType.TECH_CONTRIBUTION.getMetricCode());
         RefactoringMetric refactoringMetric = new RefactoringMetric();
@@ -92,6 +94,7 @@ public class MetricGatewayImpl implements MetricGateway {
         return subMetricList;
     }
 
+    @Override
     public List<SubMetric> listByTechInfluence(String userId){
         List<MetricDO> metricDOList = metricMapper.listByMainMetric(userId, MainMetricType.TECH_INFLUENCE.getMetricCode());
         ATAMetric ataMetric = new ATAMetric();
@@ -124,6 +127,7 @@ public class MetricGatewayImpl implements MetricGateway {
         return subMetricList;
     }
 
+    @Override
     public BugMetric getBugMetric(String userId){
         BugMetricDO bugMetricDO = bugMetricMapper.getByUserId(userId);
         BugMetricItem bugMetricItem = new BugMetricItem(bugMetricDO.getBugCount(), bugMetricDO.getCheckInCodeCount());
@@ -132,6 +136,7 @@ public class MetricGatewayImpl implements MetricGateway {
         return bugMetric;
     }
 
+    @Override
     public AppMetric getAppMetric(String userId){
         List<AppMetricDO> appMetricDOList = appMetricMapper.listByUserId(userId);
         AppMetric appMetric = new AppMetric();

@@ -28,8 +28,9 @@ public enum ErrorCode {
 
     public static ErrorCode statOf(String ecode) {
         for (ErrorCode errorCode : values()){
-            if (errorCode.getErrCode().equals(ecode))
+            if (errorCode.getErrCode().equals(ecode)) {
                 return errorCode;
+            }
         }
         return null;
     }
