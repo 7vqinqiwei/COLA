@@ -1,12 +1,14 @@
-package com.alibaba.cola.adapter.ext;
+package com.alibaba.cola.adapter.ext.advice;
 
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 import com.alibaba.cola.exception.BizException;
 import com.alibaba.cola.exception.SysException;
+import com.alibaba.cola.exception.result.ErrorCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -23,6 +25,7 @@ import java.util.Objects;
 /**
  * Describe: 用于定义异常处理的基类
  * @author qi.wei
+ * @RestControllerAdvice(basePackages = "**")
  */
 public class BaseExceptionHandler {
 
@@ -58,11 +61,26 @@ public class BaseExceptionHandler {
             ConnectException.class,
             SysException.class,
             BizException.class,
-            MethodArgumentNotValidException.class,
     })
     @ResponseBody
     public Response handleCommonException(HttpServletRequest request, Exception exception) {
         return parseCommonException(request, exception);
+    }
+
+    @ExceptionHandler({MethodArgumentNotValidException.class,})
+    public Response handleMethodArgumentNotValidException(HttpServletRequest request, Exception e) {
+        // 获取错误结果
+        BindingResult result = e instanceof MethodArgumentNotValidException ? ((MethodArgumentNotValidException) e).getBindingResult() : ((BindException) e).getBindingResult();
+        StringBuilder errorMsgBuilder = new StringBuilder();
+        for (Object object : result.getAllErrors()) {
+            if (object instanceof FieldError) {
+                FieldError fieldError = (FieldError) object;
+                errorMsgBuilder.append("[").append(fieldError.getField()).append("]").append(fieldError.getDefaultMessage()).append(";");
+            }
+        }
+        log.error("参数校验异常,url:{}", request.getRequestURI(), e);
+        String message = errorMsgBuilder.toString();
+        return SingleResponse.buildFailure(ErrorCode.BAD_REQUEST.getCode().toString(), message);
     }
 
     /**
