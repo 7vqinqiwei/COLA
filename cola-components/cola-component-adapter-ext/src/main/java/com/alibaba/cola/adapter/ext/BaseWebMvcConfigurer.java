@@ -1,6 +1,6 @@
 package com.alibaba.cola.adapter.ext;
 
-import com.alibaba.cola.adapter.ext.config.RequestContextInterceptor;
+import com.alibaba.cola.adapter.ext.interceptor.RequestContextInterceptor;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

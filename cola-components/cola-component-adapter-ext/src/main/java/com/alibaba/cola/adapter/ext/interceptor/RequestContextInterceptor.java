@@ -1,5 +1,6 @@
-package com.alibaba.cola.adapter.ext.config;
+package com.alibaba.cola.adapter.ext.interceptor;
 
+import com.alibaba.cola.adapter.ext.dto.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;

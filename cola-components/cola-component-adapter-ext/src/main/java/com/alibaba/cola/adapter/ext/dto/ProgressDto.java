@@ -1,4 +1,4 @@
-package com.alibaba.cola.adapter.ext.config;
+package com.alibaba.cola.adapter.ext.dto;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

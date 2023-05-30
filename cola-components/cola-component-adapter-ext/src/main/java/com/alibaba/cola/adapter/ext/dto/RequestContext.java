@@ -1,4 +1,4 @@
-package com.alibaba.cola.adapter.ext.config;
+package com.alibaba.cola.adapter.ext.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
