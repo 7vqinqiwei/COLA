@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@RequestMapping(value = "/list_all_by_field", method = RequestMethod.GET)
+@RequestMapping(value = "/list_all_by_field", method = RequestMethod.POST)
 public @interface ListAllByFieldUrl {
 
 }
