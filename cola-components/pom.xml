@@ -119,6 +119,8 @@
         <module>cola-component-ruleengine</module>
 
         <module>cola-component-adapter-ext</module>
+        <module>cola-biz-exception</module>
+        <module>cola-biz-feign-exception</module>
 
     </modules>
 
