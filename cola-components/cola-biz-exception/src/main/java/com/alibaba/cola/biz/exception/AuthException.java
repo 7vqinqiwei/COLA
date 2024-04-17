@@ -10,6 +10,8 @@ import com.alibaba.cola.exception.BizException;
  */
 public class AuthException extends BizException {
 
+
+
     public AuthException() {
         super(AuthException.class.getSimpleName());
     }
