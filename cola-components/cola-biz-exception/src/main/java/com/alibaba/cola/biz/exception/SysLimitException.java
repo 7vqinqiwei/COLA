@@ -5,7 +5,7 @@ import com.alibaba.cola.exception.BizException;
 /**
  * 系统限制异常
  *
- * @author pangu
+ * @author qi.wei
  */
 public class SysLimitException extends BizException {
 
