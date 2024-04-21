@@ -22,6 +22,7 @@ import java.util.Objects;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Result<T> extends Response implements Serializable {
 
+    public static final Result OK = new Result();
 
     private static final String DEFAULT_SUCCESS_MESSAGE = "处理成功";
     private static final String DEFAULT_FAIL_MESSAGE = "处理失败";
@@ -71,6 +72,10 @@ public class Result<T> extends Response implements Serializable {
         this.data = data;
         this.msg = msg;
         this.time = System.currentTimeMillis();
+    }
+
+    public static <T> Result<T> ok() {
+        return data(null);
     }
 
     /**
