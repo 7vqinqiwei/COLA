@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -19,6 +20,7 @@ import java.util.Objects;
 @Data
 @Getter
 @Schema(description = "统一响应消息报文")
+@Slf4j
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Result<T> extends Response implements Serializable {
 
@@ -136,5 +138,31 @@ public class Result<T> extends Response implements Serializable {
     @Override
     public boolean isSuccess() {
         return Objects.equals(this.getCode() , ErrorCode.OK.getCode());
+    }
+
+    /**
+     * 转换成response
+     */
+    public void toResponse() {
+        this.errCode = this.code.toString();
+        this.errMessage = this.msg;
+    }
+
+    public void toResult() {
+        this.msg = this.errMessage;
+        // errCode是字符串类型，如果转换成Integer不一定成功
+        // 这个时候一定要明确两者用法定义是否一致
+        // 如果明确原来的Response是成功，那么code就是200
+        if (Objects.equals(this.isSuccess(), Boolean.TRUE)) {
+            this.code = ErrorCode.OK.getCode();
+        }else {
+            try {
+                this.code = Integer.parseInt(this.errCode);
+            } catch (Exception e) {
+                log.error("Result.toResult转换异常,请明确两者是否通用,-{}", e);
+                this.code = ErrorCode.INTERNAL_SERVER_ERROR.getCode();
+            }
+        }
+
     }
 }
