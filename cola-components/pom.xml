@@ -288,7 +288,7 @@
                               
           <artifactId>maven-gpg-plugin</artifactId>
                               
-          <version>3.1.0</version>
+          <version>3.2.4</version>
                           
         </plugin>
                         
