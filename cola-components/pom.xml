@@ -123,6 +123,7 @@
         <module>cola-biz-feign-exception</module>
         <module>cola-biz-dto</module>
         <module>cola-biz-context</module>
+        <module>cola-biz-feign</module>
 
     </modules>
 
