@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@RequestMapping(value = "/delete", method = RequestMethod.GET)
+@RequestMapping(value = "/delete", method = RequestMethod.POST)
 public @interface DeleteUrl {
 
 }

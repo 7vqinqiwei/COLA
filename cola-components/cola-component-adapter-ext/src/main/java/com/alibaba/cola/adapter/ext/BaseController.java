@@ -19,15 +19,15 @@ public abstract class BaseController {
         return SingleResponse.of(data);
     }
 
-    public SingleResponse failed(ErrorCode errorCode) {
+    public SingleResponse<?> failed(ErrorCode errorCode) {
         return SingleResponse.buildFailure(errorCode.getCode().toString(), errorCode.getMsg());
     }
 
-    public SingleResponse failed(Integer code, String msg) {
+    public SingleResponse<?> failed(Integer code, String msg) {
         return SingleResponse.buildFailure(code.toString(), msg);
     }
 
-    public SingleResponse failed(BaseException e) {
+    public SingleResponse<?> failed(BaseException e) {
         return SingleResponse.buildFailure(e.getErrCode(), e.getMessage());
     }
 

@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@RequestMapping(value = "/select_all", method = RequestMethod.GET)
+@RequestMapping(value = "/select_all", method = RequestMethod.POST)
 public @interface SelectAllUrl {
 
 }

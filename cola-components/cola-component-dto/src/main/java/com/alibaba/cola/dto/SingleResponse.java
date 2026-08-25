@@ -19,14 +19,14 @@ public class SingleResponse<T> extends Response {
         this.data = data;
     }
 
-    public static SingleResponse buildSuccess() {
-        SingleResponse response = new SingleResponse();
+    public static SingleResponse<?> buildSuccess() {
+        SingleResponse<?> response = new SingleResponse<>();
         response.setSuccess(true);
         return response;
     }
 
-    public static SingleResponse buildFailure(String errCode, String errMessage) {
-        SingleResponse response = new SingleResponse();
+    public static SingleResponse<?> buildFailure(String errCode, String errMessage) {
+        SingleResponse<?> response = new SingleResponse<>();
         response.setSuccess(false);
         response.setErrCode(errCode);
         response.setErrMessage(errMessage);

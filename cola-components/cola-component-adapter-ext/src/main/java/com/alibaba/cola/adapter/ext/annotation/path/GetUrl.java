@@ -12,6 +12,6 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@RequestMapping(value = "/get", method = RequestMethod.GET)
+@RequestMapping(value = "/get", method = RequestMethod.POST)
 public @interface GetUrl {
 }
