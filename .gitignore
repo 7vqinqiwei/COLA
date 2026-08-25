@@ -23,7 +23,6 @@ dist/
 nbdist/
 bin/
 doc/
-target/
 out/
 .DS_Store
 .vscode/settings.json

@@ -1,9 +1,11 @@
 package com.alibaba.cola.catchlog;
 
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,10 +17,11 @@ import org.springframework.stereotype.Component;
 @Component("colaCatchLogApplicationContextHelper")
 @Slf4j
 public class ApplicationContextHelper implements ApplicationContextAware {
+    @Getter
     private static ApplicationContext applicationContext;
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
         ApplicationContextHelper.applicationContext = applicationContext;
     }
 
@@ -26,8 +29,12 @@ public class ApplicationContextHelper implements ApplicationContextAware {
         T beanInstance = null;
         //优先按type查
         try {
-            beanInstance = (T)applicationContext.getBean(targetClz);
+            beanInstance = applicationContext.getBean(targetClz);
         } catch (Exception e) {
+            // 根据类型获取不到当前类
+            if (log.isDebugEnabled()) {
+                log.debug("根据类型-{}获取不到当前spring实例", targetClz.getName(), e);
+            }
         }
 
         //按name查
@@ -38,8 +45,7 @@ public class ApplicationContextHelper implements ApplicationContextAware {
                 simpleName = Character.toLowerCase(simpleName.charAt(0)) + simpleName.substring(1);
                 beanInstance = (T) applicationContext.getBean(simpleName);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             log.warn("No bean found for " + targetClz.getCanonicalName());
         }
         return beanInstance;
@@ -57,7 +63,4 @@ public class ApplicationContextHelper implements ApplicationContextAware {
         return ApplicationContextHelper.applicationContext.getBean(requiredType, params);
     }
 
-    public static ApplicationContext getApplicationContext() {
-        return applicationContext;
-    }
 }

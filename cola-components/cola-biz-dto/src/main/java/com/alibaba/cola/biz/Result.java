@@ -5,6 +5,7 @@ import com.alibaba.cola.exception.result.ErrorCode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,6 +18,7 @@ import java.util.Objects;
  * @param <T> 　T对象
  * @author pangu
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Getter
 @Schema(description = "统一响应消息报文")
@@ -24,7 +26,7 @@ import java.util.Objects;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Result<T> extends Response implements Serializable {
 
-    public static final Result OK = new Result();
+    public static final Result<?> OK = new Result<>();
 
     private static final String DEFAULT_SUCCESS_MESSAGE = "处理成功";
     private static final String DEFAULT_FAIL_MESSAGE = "处理失败";
@@ -42,10 +44,10 @@ public class Result<T> extends Response implements Serializable {
     @Schema(description = "业务数据")
     private T data;
 
-    @Schema(description = "错误码,兼容cola,优先code处理", required = false)
+    @Schema(description = "错误码,兼容cola,优先code处理")
     private String errCode;
 
-    @Schema(description = "错误信息,兼容cola,优先msg", required = false)
+    @Schema(description = "错误信息,兼容cola,优先msg")
     private String errMessage;
 
     public Result() {

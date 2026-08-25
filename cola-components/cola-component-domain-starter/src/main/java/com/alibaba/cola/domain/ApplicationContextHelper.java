@@ -24,8 +24,9 @@ public class ApplicationContextHelper implements ApplicationContextAware {
         T beanInstance = null;
         //优先按type查
         try {
-            beanInstance = (T)applicationContext.getBean(targetClz);
+            beanInstance = applicationContext.getBean(targetClz);
         } catch (Exception e) {
+            // 根据类型获取不到，继续根据类名称获取实例
         }
         //按name查
         if (beanInstance == null) {
