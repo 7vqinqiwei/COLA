@@ -53,6 +53,13 @@
     </developers>
 
     <modules>
+        <module>cola-biz-context</module>
+        <module>cola-biz-dto</module>
+        <module>cola-biz-exception</module>
+        <module>cola-biz-feign</module>
+        <module>cola-biz-feign-exception</module>
+        <module>cola-component-adapter-ext</module>
+        <module>cola-component-job</module>
         <module>cola-component-dto</module>
         <module>cola-component-exception</module>
         <module>cola-component-statemachine</module>
@@ -63,6 +70,7 @@
         <module>cola-components-bom</module>
         <module>cola-component-ruleengine</module>
         <module>cola-component-unittest</module>
+        <module>cola-biz-bom</module>
     </modules>
 
     <properties>
