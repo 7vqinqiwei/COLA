@@ -161,7 +161,7 @@ public class Result<T> extends Response implements Serializable {
             try {
                 this.code = Integer.parseInt(this.errCode);
             } catch (Exception e) {
-                log.error("Result.toResult转换异常,请明确两者是否通用,-{}", e);
+                log.error("Result.toResult转换异常,请明确两者是否通用,-{0}", e);
                 this.code = ErrorCode.INTERNAL_SERVER_ERROR.getCode();
             }
         }

@@ -39,26 +39,15 @@ public class PageResponse<T> extends Response {
     }
 
     public void setPageSize(int pageSize) {
-        if (pageSize < 1) {
-            this.pageSize = 1;
-        } else {
-            this.pageSize = pageSize;
-        }
+        this.pageSize = Math.max(pageSize, 1);
     }
 
     public int getPageIndex() {
-        if (pageIndex < 1) {
-            return 1;
-        }
-        return pageIndex;
+        return Math.max(pageIndex, 1);
     }
 
     public void setPageIndex(int pageIndex) {
-        if (pageIndex < 1) {
-            this.pageIndex = 1;
-        } else {
-            this.pageIndex = pageIndex;
-        }
+        this.pageIndex = Math.max(pageIndex, 1);
     }
 
     public List<T> getData() {
@@ -88,14 +77,14 @@ public class PageResponse<T> extends Response {
         return !isEmpty();
     }
 
-    public static PageResponse buildSuccess() {
-        PageResponse response = new PageResponse();
+    public static PageResponse<?> buildSuccess() {
+        PageResponse<?> response = new PageResponse<>();
         response.setSuccess(true);
         return response;
     }
 
-    public static PageResponse buildFailure(String errCode, String errMessage) {
-        PageResponse response = new PageResponse();
+    public static PageResponse<?> buildFailure(String errCode, String errMessage) {
+        PageResponse<?> response = new PageResponse<>();
         response.setSuccess(false);
         response.setErrCode(errCode);
         response.setErrMessage(errMessage);
